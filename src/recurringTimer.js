@@ -10,6 +10,13 @@
  * Example Usage:
  * const timerId = recurringTimer("Hello, world!", 2000); // Logs "Hello, world!" every 2 seconds.
  */
+function recurringTimer(message, interval) {
+  const timerId = setInterval(() => {
+    console.log(message);
+  }, interval);
+
+  return timerId;
+}
 
 /**
  * Function: stopRecurringTimer
@@ -22,11 +29,11 @@
  * Example Usage:
  * stopRecurringTimer(timerId); // Stops the recurring timer started with the given ID.
  */
-function recurringTimer(message, interval) {
-  // Set up a timer using setInterval to log the message
-  // Return the timer ID
+function stopRecurringTimer(timerId) {
+  clearInterval(timerId);
 }
 
-function stopRecurringTimer(timerId) {
-  // Stop the timer using clearInterval
-}
+module.exports = {
+  recurringTimer,
+  stopRecurringTimer,
+};
